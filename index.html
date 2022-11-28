@@ -67,7 +67,7 @@
 <body>
     <div class="container">
           <h1>Let me help you to pick a <span class="span">Random</span> thing among  multiple things</h1>
-          <input type="text" placeholder="Enter items sepearted by a comma(,)" id="items">
+          <input type="text" placeholder="Enter things sepearted by a comma(,)" id="items">
           <h2 id="result"></h2> <button id="btn">Pick</button>
           </div> 
           
@@ -86,7 +86,7 @@ pick.onclick = function(){
    
      let random = Math.floor(Math.random() * array.length);
      
-     if(array[random] == undefined || array[random] == ' '){
+     if(array[random] == undefined || array[random] == ' ' || array[random]==''){
                result.innerHTML="Please enter things separted by a comma(,)"
      }
      else{
