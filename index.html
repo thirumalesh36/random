@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Random Choice</title>
+     <style>
+          *{
+               box-sizing: border-box;
+               margin: 0%;
+               padding: 0%;
+          }
+          input{
+               border-radius: 18px;
+               padding:9px;
+               position: relative;
+               
+          }
+ .container{
+     display: flex;
+     justify-content: center;
+     padding: 21px;
+     flex-direction: column;
+     margin-top: 20%;
+     gap:30px;
+    width: 30vw;
+    margin: auto;
+ }
+ .container h1{
+     font-family: Arial, Helvetica, sans-serif;
+     text-align: center;
+     font-size: 30px;
+     line-height: 45px;
+ }.span{
+     color:rgb(255, 0, 0)
+ }
+ button{
+    position: relative;
+    background-color: black;
+    color: whitesmoke;
+    border-radius: 15px;
+    padding: 18px;
+    width: 50%;
+    align-self: center;
+    font-size: 21px;
+}
+#result{
+     text-transform:uppercase;
+     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+     text-align: center;
+
+}
+@media screen and (max-width:800px) {
+     .container{
+     display: flex;
+     justify-content: center;
+     padding: 21px;
+     flex-direction: column;
+     margin-top: 20%;
+     gap:30px;
+   width:100%;
+ }
+}
+     </style>
+</head>
+<body>
+    <div class="container">
+          <h1>Let me help you to pick a <span class="span">Random</span> thing among  multiple things</h1>
+          <input type="text" placeholder="Enter items sepearted by a comma(,)" id="items">
+          <h2 id="result"></h2> <button id="btn">Pick</button>
+          </div> 
+          
+</body>
+<script>
+let pick = document.querySelector('#btn');
+let result = document.querySelector('#result');
+pick.onclick = function(){
+     let items = document.querySelector('#items').value;
+     items = items.trim();
+     let array=[];
+     if( items.includes(',') ){ 
+               array = items.split(',') 
+     }
+
+   
+     let random = Math.floor(Math.random() * array.length);
+     
+     if(array[random] == undefined || array[random] == ' '){
+               result.innerHTML="Please enter things separted by a comma(,)"
+     }
+     else{
+               result.innerHTML = array[random]
+     }
+
+}
+</script>
+</html>
